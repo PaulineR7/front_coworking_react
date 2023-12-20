@@ -12,9 +12,9 @@ function HeaderAdmin() {
     return(
         <nav>
             <ul>
-                <li><Link to="">Dashboard</Link></li>
-                <li><Link to="">Créer un coworking</Link></li>
-                <li><Link to="">Gérer les coworkings</Link></li>
+                <li><Link to="/admin/">Dashboard</Link></li>
+                <li><Link to="/admin/coworkings/create">Créer un coworking</Link></li>
+                <li><Link to="/admin/coworkings">Gérer les coworkings</Link></li>
                 <li><button onClick={handleLogout}>Se déconnecter</button></li>
             </ul>
         </nav>
