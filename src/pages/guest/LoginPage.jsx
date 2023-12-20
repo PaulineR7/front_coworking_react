@@ -1,4 +1,7 @@
+import { useNavigate } from "react-router-dom";
+
 function LoginPage() {
+    const navigate = useNavigate();
     const handleLogin = async(event) => {
         event.preventDefault();
         const username = event.target.username.value;
@@ -15,7 +18,7 @@ function LoginPage() {
         // je convertie les valeurs en JSON
         const loginDataJson = JSON.stringify(loginData);
 
-        // je fais un fecth sur l'url login
+        // je fais un fecth(requête) sur l'url login
         const loginResponse = await fetch("http://localhost:3000/api/users/login", {
         //je lui dit par quel méthode je suis passée
         method: "POST",
@@ -34,6 +37,14 @@ function LoginPage() {
 
         // je l'affiche en console
         console.log(token)
+
+        if (token) {
+            // je le stocke dans le local storage du navigateur
+            localStorage.setItem("jwt", token);
+            navigate("/admin/")
+
+        }
+        
     }
     return(
         <section>
